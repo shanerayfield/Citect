@@ -1,0 +1,24 @@
+﻿@using Citect.Models
+@using Citect.Domain.DataAccess
+@using Citect.Domain.Entities
+@model Citect.Models.AlarmLogView
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-hover">
+    <thead><tr><td>Time</td><td>Alarm</td><td>Description</td></tr></thead>
+    <tbody>
+        @foreach (LogEntry al in Model.alarmLog.GetLog())
+        {
+            <tr>
+                <td>@al.LocalTimeDate</td>
+                <td>@al.Name</td>
+                <td>@al.Desc</td>
+            </tr>
+        }
+    </tbody>
+</table>
